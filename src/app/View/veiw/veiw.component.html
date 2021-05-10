@@ -1,0 +1,28 @@
+<div class="container">
+  <ngx-spinner></ngx-spinner>
+
+  <h1 class="heading1"> Notification Application <mat-icon>notifications</mat-icon></h1>
+
+  <mat-accordion class="example-headers-align ">
+    <mat-expansion-panel [ngClass]="not.status == 'read'? 'readComp':'readNot'"  *ngFor="let not of nots">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <i *ngIf="not.vector =='Internal'" class="fas fa-user-circle iconCircle"></i>
+          <i *ngIf="not.vector =='Twitter'" class="fab fa-twitter iconCircle"></i>
+          <i *ngIf="not.vector =='Email'" class="fas fa-envelope iconCircle"></i>
+          &nbsp; {{not.sender_id | titlecase}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{not.invitesDisplay}} at {{not.invite_time | date:'medium'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p style="white-space: pre-wrap">{{not.invite}}</p>
+      <p>{{not.invite_time | date:'medium'}}</p>
+   
+    </mat-expansion-panel>
+    <mat-divider></mat-divider>
+  </mat-accordion>
+
+
+
+</div>
